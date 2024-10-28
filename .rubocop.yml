@@ -1,0 +1,148 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-faker
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
+
+AllCops:
+  TargetRubyVersion: 3.0
+  TargetRailsVersion: 7.0
+  NewCops: enable
+  Exclude:
+    - bin/**/*
+    - db/**/*
+    - vendor/**/*
+    - tmp/**/*
+    - node_modules/**/*
+
+Lint/MissingSuper:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+# Style -----------------------------------------------------------------------
+Style/FetchEnvVar:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Exclude:
+    - config/puma.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/ParallelAssignment:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/controllers/**/*
+
+Rails/EnvironmentVariableAccess:
+  AllowReads: true
+
+RSpec/ScatteredSetup:
+  Enabled: false
+# Metrics ---------------------------------------------------------------------
+
+Metrics/AbcSize:
+  Max: 25
+
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  AllowedMethods:
+    - register
+
+  Exclude:
+    - config/**/*
+    - Rakefile
+    - lib/tasks/**/*.rake
+    - spec/**/*
+    - config/routes.rb
+
+Metrics/MethodLength:
+  Max: 25
+
+# Layout ----------------------------------------------------------------------
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/ClassStructure:
+  Enabled: true
+  Categories:
+    module_inclusion:
+      - include
+      - prepend
+      - extend
+    associations:
+      - has_one
+      - has_many
+      - belongs_to
+      - has_and_belongs_to_many
+  ExpectedOrder:
+    - module_inclusion
+    - constants
+    - associations
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
+
+# RSpec -----------------------------------------------------------------------
+RSpec/AnyInstance:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/MultipleDescribes:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/StubbedMock:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 22
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+RSpec/MessageChain:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 5
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - spec/requests/**/*
+
+RSpec/VariableName:
+  Exclude:
+    - spec/requests/**/*
+# Rails ------------------------------------------------------------------------
+
+Rails/RakeEnvironment:
+  Enabled: false
+
+Rails/WhereNotWithMultipleConditions:
+  Enabled: false

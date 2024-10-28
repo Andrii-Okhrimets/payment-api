@@ -1,0 +1,43 @@
+pre-commit:
+  parallel: true
+  commands:
+    rubocop:
+      glob: "*.rb"
+      run: |
+        bundle exec rubocop --parallel
+    brakeman:
+      glob: "*.rb"
+      run: |
+        bundle exec brakeman --quiet \
+                             --ensure-latest \
+                             --no-pager \
+                             --no-summary
+    rails_best_practices:
+      run: |
+        bundle exec rails_best_practices
+    bundle:
+      glob: "{Gemfile,Gemfile.lock}"
+      run: |
+        bundle exec bundle-audit check --update
+
+all:
+  parallel: true
+
+  commands:
+    rails_best_practices:
+      run: |
+        bundle exec rails_best_practices
+    rubocop:
+      glob: "*.rb"
+      run: |
+        bundle exec rubocop --parallel
+    brakeman:
+      glob: "*.rb"
+      run: |
+        bundle exec brakeman --quiet \
+        --ensure-latest \
+        --no-pager
+    bundle:
+      glob: "{Gemfile,Gemfile.lock}"
+      run: |
+        bundle exec bundle-audit check --update

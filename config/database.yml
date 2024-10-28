@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: utf-8
+  host: <%= ENV['PGHOST'] || 'localhost' %>
+  username: <%= ENV['PGUSER'] || 'postgres'  %>
+  password: <%= ENV['PGPASSWORD'] || 'postgres' %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 20 } %>
+
+development:
+  <<: *default
+  database: payment_api_development
+
+test:
+  <<: *default
+  database: payment_api_test
+
+production:
+  <<: *default
+  database: payment_api_production
+  username: payment_api
+  password: <%= ENV["PAYMENT_API_DATABASE_PASSWORD"] %>
