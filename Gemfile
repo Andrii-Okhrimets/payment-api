@@ -19,7 +19,7 @@ gem 'rack-cors', '1.1', require: 'rack/cors'
 gem 'rest-client', '2.1.0'
 
 #### Background jobs
-gem 'redis', '4.7.1'
+gem 'redis', '5.3.0'
 gem 'sidekiq', '7.3.4'
 # gem 'sidekiq-scheduler', '5.0.6'
 # gem 'sidekiq-unique-jobs', '8.0.10'
