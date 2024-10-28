@@ -200,7 +200,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.7)
+    pg (1.5.9)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -411,7 +411,7 @@ DEPENDENCIES
   interactor (= 3.1.2)
   json_spec (= 1.1.5)
   lefthook
-  pg (= 1.5.7)
+  pg (= 1.5.9)
   pry (= 0.14.2)
   pry-byebug (= 3.10.1)
   pry-rails (= 0.3.11)
