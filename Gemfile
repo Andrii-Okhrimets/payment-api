@@ -60,6 +60,6 @@ group :test do
   gem 'rspec-rails', '7.0.1'
   gem 'rspec-sidekiq', '5.0.0'
   gem 'rswag-specs', '2.14.0'
-  gem 'shoulda-matchers', '6.2.0'
+  gem 'shoulda-matchers', '6.4.0'
   gem 'simplecov', '0.22.0', require: false
 end
