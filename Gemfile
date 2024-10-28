@@ -19,7 +19,7 @@ gem 'rack-cors', '1.1', require: 'rack/cors'
 gem 'rest-client', '2.1.0'
 
 #### Background jobs
-gem 'redis', '4.7.1'
+gem 'redis', '5.3.0'
 gem 'sidekiq', '7.3.4'
 # gem 'sidekiq-scheduler', '5.0.6'
 # gem 'sidekiq-unique-jobs', '8.0.10'
@@ -47,7 +47,7 @@ group :development, :test do
   gem 'rubocop-faker', '1.1.0', require: false
   gem 'rubocop-performance', '1.21.1', require: false
   gem 'rubocop-rails', '2.27.0', require: false
-  gem 'rubocop-rspec', '3.0.3', require: false
+  gem 'rubocop-rspec', '3.2.0', require: false
   gem 'rubocop-rspec_rails', '2.30.0', require: false
 end
 
@@ -60,6 +60,6 @@ group :test do
   gem 'rspec-rails', '7.0.1'
   gem 'rspec-sidekiq', '5.0.0'
   gem 'rswag-specs', '2.15.0'
-  gem 'shoulda-matchers', '6.2.0'
+  gem 'shoulda-matchers', '6.4.0'
   gem 'simplecov', '0.22.0', require: false
 end
