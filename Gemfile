@@ -53,7 +53,7 @@ end
 
 group :test do
   gem 'capybara', '3.40.0'
-  gem 'database_cleaner', '2.0.2'
+  gem 'database_cleaner', '2.1.0'
   gem 'json_spec', '1.1.5'
   gem 'rails-controller-testing', '1.0.5'
   gem 'rspec_junit_formatter', '0.6.0'
