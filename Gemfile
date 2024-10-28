@@ -10,9 +10,9 @@ gem 'rails', '~> 7.2.1'
 gem 'interactor', '3.1.2'
 
 ## Rswag
-gem 'rswag', '2.14.0'
-gem 'rswag-api', '2.14.0'
-gem 'rswag-ui', '2.14.0'
+gem 'rswag', '2.15.0'
+gem 'rswag-api', '2.15.0'
+gem 'rswag-ui', '2.15.0'
 
 gem 'active_model_serializers', '0.10.14'
 gem 'rack-cors', '1.1', require: 'rack/cors'
@@ -59,7 +59,7 @@ group :test do
   gem 'rspec_junit_formatter', '0.6.0'
   gem 'rspec-rails', '7.0.1'
   gem 'rspec-sidekiq', '5.0.0'
-  gem 'rswag-specs', '2.14.0'
+  gem 'rswag-specs', '2.15.0'
   gem 'shoulda-matchers', '6.2.0'
   gem 'simplecov', '0.22.0', require: false
 end
