@@ -51,7 +51,7 @@ group :development, :test do
   gem 'rails_best_practices', require: false
   gem 'rubocop', '1.68.0', require: false
   gem 'rubocop-factory_bot', '2.26.1', require: false
-  gem 'rubocop-faker', '1.1.0', require: false
+  gem 'rubocop-faker', '1.2.0', require: false
   gem 'rubocop-performance', '1.22.1', require: false
   gem 'rubocop-rails', '2.27.0', require: false
   gem 'rubocop-rspec', '3.2.0', require: false
