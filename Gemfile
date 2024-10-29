@@ -30,7 +30,7 @@ group :development, :test do
   # sometimes we need to build fake entities on these environments for testing
   gem 'annotate'
   gem 'factory_bot_rails', require: false
-  gem 'faker', '2.23.0', require: false
+  gem 'faker', '3.5.1', require: false
 
   # For debugging
   gem 'pry', '0.14.2'

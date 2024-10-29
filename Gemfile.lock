@@ -131,7 +131,7 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
-    faker (2.23.0)
+    faker (3.5.1)
       i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -405,7 +405,7 @@ DEPENDENCIES
   capybara (= 3.40.0)
   database_cleaner (= 2.1.0)
   factory_bot_rails
-  faker (= 2.23.0)
+  faker (= 3.5.1)
   interactor (= 3.1.2)
   json_spec (= 1.1.5)
   lefthook
