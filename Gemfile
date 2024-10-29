@@ -15,7 +15,7 @@ gem 'rswag-api', '2.15.0'
 gem 'rswag-ui', '2.15.0'
 
 gem 'active_model_serializers', '0.10.14'
-gem 'rack-cors', '1.1', require: 'rack/cors'
+gem 'rack-cors', '2.0.2', require: 'rack/cors'
 gem 'rest-client', '2.1.0'
 
 #### Background jobs
