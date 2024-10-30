@@ -153,7 +153,7 @@ GEM
       rspec (>= 2.0, < 4.0)
     jsonapi-renderer (0.2.2)
     language_server-protocol (3.17.0.3)
-    lefthook (1.8.1)
+    lefthook (1.8.2)
     logger (1.6.1)
     loofah (2.23.1)
       crass (~> 1.0.2)
