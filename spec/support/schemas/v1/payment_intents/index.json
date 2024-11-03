@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Generated from index.json with shasum 943aad1d5c2d18680443cc7784398f1c80636b27",
+  "type": "array",
+  "minItems": 1,
+  "uniqueItems": true,
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "balance_in_dollars",
+      "remaining_amount_in_dollars",
+      "status",
+      "retry_attempts",
+      "next_pay_at"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "balance_in_dollars": {
+        "type": "string"
+      },
+      "remaining_amount_in_dollars": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string"
+      },
+      "retry_attempts": {
+        "type": "integer"
+      },
+      "next_pay_at": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+}

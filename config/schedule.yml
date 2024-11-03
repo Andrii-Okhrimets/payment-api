@@ -1,0 +1,4 @@
+billing:
+  cron: '0 0 * * *'        # At every day
+  class: 'RetryPaymentIntenttJob'
+  queue: default

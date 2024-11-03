@@ -14,23 +14,30 @@ gem 'rswag', '2.15.0'
 gem 'rswag-api', '2.15.0'
 gem 'rswag-ui', '2.15.0'
 
+# JSON serialization
 gem 'active_model_serializers', '0.10.14'
+# CORS support
 gem 'rack-cors', '2.0.2', require: 'rack/cors'
+
 gem 'rest-client', '2.1.0'
+
+# Authorization policies
+gem 'pundit', '2.0.1'
+
+### Pagination
+gem 'kaminari'
 
 #### Background jobs
 gem 'redis', '5.3.0'
-gem 'sidekiq', '7.3.4'
-# gem 'sidekiq-scheduler', '5.0.6'
-# gem 'sidekiq-unique-jobs', '8.0.10'
+gem 'sidekiq-cron', '~> 1.3'
 
 group :development, :test do
   gem 'bullet', '7.2.0'
 
   # sometimes we need to build fake entities on these environments for testing
   gem 'annotate'
-  gem 'factory_bot_rails', require: false
-  gem 'faker', '3.5.1', require: false
+  gem 'factory_bot_rails'
+  gem 'faker', '3.5.1'
 
   # For debugging
   gem 'pry', '0.14.2'
@@ -54,6 +61,8 @@ end
 group :test do
   gem 'capybara', '3.40.0'
   gem 'database_cleaner', '2.1.0'
+  gem 'json_matchers', '~> 0.11.1', require: 'json_matchers/rspec'
+  gem 'json-schema-generator', '~> 0.0.9'
   gem 'json_spec', '1.1.5'
   gem 'rails-controller-testing', '1.0.5'
   gem 'rspec_junit_formatter', '0.6.0'

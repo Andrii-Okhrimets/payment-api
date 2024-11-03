@@ -1,0 +1,232 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "DEV Server API",
+    "description": "APIs only for DEV server."
+  },
+  "paths": {
+    "/api/v1/payment_intents": {
+      "get": {
+        "summary": "Get payment intents",
+        "tags": [
+          "Payment Intents"
+        ],
+        "operationId": "paymentIntentsIndex",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Items per page",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "description": "Generated from index.json with shasum 943aad1d5c2d18680443cc7784398f1c80636b27",
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "balance_in_dollars",
+                      "remaining_amount_in_dollars",
+                      "status",
+                      "retry_attempts",
+                      "next_pay_at"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "balance_in_dollars": {
+                        "type": "string"
+                      },
+                      "remaining_amount_in_dollars": {
+                        "type": "string"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "retry_attempts": {
+                        "type": "integer"
+                      },
+                      "next_pay_at": {
+                        "type": "string"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Creates a payment intent",
+        "tags": [
+          "Payment Intents"
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "Payment intent created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "description": "Generated from create.json with shasum 0f116573cc9f77a2a366ef41585a2afe72a3c1bc",
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "balance_in_dollars",
+                    "remaining_amount_in_dollars",
+                    "status",
+                    "retry_attempts",
+                    "next_pay_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "balance_in_dollars": {
+                      "type": "string"
+                    },
+                    "remaining_amount_in_dollars": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "retry_attempts": {
+                      "type": "integer"
+                    },
+                    "next_pay_at": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Not processable content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "subscription_id": {
+                    "type": "integer",
+                    "description": "Subscription ID"
+                  },
+                  "amount": {
+                    "type": "float",
+                    "description": "Amount"
+                  }
+                },
+                "required": [
+                  "subscription_id",
+                  "amount"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/payment_intents/{subscription_id}": {
+      "get": {
+        "summary": "Retrieves a subscription",
+        "tags": [
+          "Payment Intents"
+        ],
+        "parameters": [
+          {
+            "name": "subscription_id",
+            "in": "path",
+            "description": "Subscription ID",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "description": "Generated from show.json with shasum a41e002905c23aae2810a1eb5516a9657539b6c0",
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "balance_in_dollars",
+                    "remaining_amount_in_dollars",
+                    "status",
+                    "retry_attempts",
+                    "next_pay_at"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "balance_in_dollars": {
+                      "type": "string"
+                    },
+                    "remaining_amount_in_dollars": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "retry_attempts": {
+                      "type": "integer"
+                    },
+                    "next_pay_at": {
+                      "type": "string"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  }
+}
