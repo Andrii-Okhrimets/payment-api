@@ -1,3 +1,4 @@
+inherit_from: .rubocop_todo.yml
 require:
   - rubocop-performance
   - rubocop-rails
@@ -6,143 +7,157 @@ require:
   - rubocop-factory_bot
   - rubocop-rspec_rails
 
-AllCops:
-  TargetRubyVersion: 3.0
-  TargetRailsVersion: 7.0
-  NewCops: enable
-  Exclude:
-    - bin/**/*
-    - db/**/*
-    - vendor/**/*
-    - tmp/**/*
-    - node_modules/**/*
+# Following Cops were enabled:
 
-Lint/MissingSuper:
+Layout/FirstArrayElementLineBreak:
+  Description: >-
+    Checks for a line break before the first element in a
+    multi-line array.
+  Enabled: true
+
+Layout/FirstHashElementLineBreak:
+  Description: >-
+    Checks for a line break before the first element in a
+    multi-line hash.
+  Enabled: true
+
+Layout/LineLength:
+  Max: 100
+
+Lint/Debugger:
+  Description: 'Check for debugger calls.'
+  Enabled: true
+  Severity: 'fatal'
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
+
+Style/CollectionMethods:
+  Description: 'Preferred collection methods.'
+  StyleGuide: '#map-find-select-reduce-size'
+  Enabled: true
+
+Style/ImplicitRuntimeError:
+  Description: >-
+    Use `raise` or `fail` with an explicit exception class and
+    message, rather than just a message.
+  Enabled: true
+
+Style/MethodCalledOnDoEndBlock:
+  Description: 'Avoid chaining a method call on a do...end block.'
+  StyleGuide: '#single-line-blocks'
+  Enabled: true
+
+Style/Send:
+  Description: 'Prefer `Object#__send__` or `Object#public_send` to `send`, as `send` may overlap with existing methods.'
+  StyleGuide: '#prefer-public-send'
+  Enabled: true
+
+Style/BlockDelimiters:
+  AllowedMethods:
+    - lambda
+    - proc
+
+Style/UnlessLogicalOperators:
+  Enabled: true
+  EnforcedStyle: forbid_logical_operators
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+
+Bundler/DuplicatedGem:
+  Enabled: true
+  Include:
+    - '**/Gemfile'
+    - '**/gems.rb'
+
+Metrics/BlockLength:
+  Description: 'Avoid long blocks with many lines.'
+  Enabled: true
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - 'config/routes.rb'
+    - 'config/routes/*.rb'
+    - 'config/environments/*.rb'
+    - 'app/api_docs/**/*.rb'
+
+# Following Cops were disabled:
+
+Style/Encoding:
+  Description: 'Use UTF-8 as the source file encoding.'
   Enabled: false
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Style/RescueModifier:
+  Description: 'Avoid using rescue in its modifier form.'
+  Enabled: false
+
+Style/EmptyCaseCondition:
+  Description: 'Avoid empty condition in case statements.'
+  Enabled: false
+
+Style/FormatStringToken:
+  Description: 'Prefer annotated tokens (like `%<foo>s`) over unannotated tokens (like `%s`).'
+  Enabled: false
+
+# Rails cops
 
 Rails:
   Enabled: true
 
-# Style -----------------------------------------------------------------------
-Style/FetchEnvVar:
+Rails/SkipsModelValidations:
   Enabled: false
 
-Style/RedundantFetchBlock:
-  Exclude:
-    - config/puma.rb
-
-Style/Documentation:
+Rails/NotNullColumn:
   Enabled: false
 
-Style/ParallelAssignment:
-  Enabled: false
+# RSpec cops
 
-Style/RegexpLiteral:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Exclude:
-    - app/controllers/**/*
-
-Rails/EnvironmentVariableAccess:
-  AllowReads: true
-
-RSpec/ScatteredSetup:
-  Enabled: false
-# Metrics ---------------------------------------------------------------------
-
-Metrics/AbcSize:
-  Max: 25
-
-Layout/LineLength:
-  Max: 120
-
-Metrics/BlockLength:
-  AllowedMethods:
-    - register
-
-  Exclude:
-    - config/**/*
-    - Rakefile
-    - lib/tasks/**/*.rake
-    - spec/**/*
-    - config/routes.rb
-
-Metrics/MethodLength:
-  Max: 25
-
-# Layout ----------------------------------------------------------------------
-
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/ClassStructure:
-  Enabled: true
-  Categories:
-    module_inclusion:
-      - include
-      - prepend
-      - extend
-    associations:
-      - has_one
-      - has_many
-      - belongs_to
-      - has_and_belongs_to_many
-  ExpectedOrder:
-    - module_inclusion
-    - constants
-    - associations
-    - public_class_methods
-    - initializer
-    - public_methods
-    - protected_methods
-    - private_methods
-
-# RSpec -----------------------------------------------------------------------
 RSpec/AnyInstance:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-  Enabled: false
-
-RSpec/MultipleDescribes:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/ExpectInHook:
-  Enabled: false
-
-RSpec/StubbedMock:
+  Description: 'Avoid stubbing using `allow_any_instance_of`.'
   Enabled: false
 
 RSpec/ExampleLength:
-  Max: 22
+  Max: 15
 
-RSpec/MessageSpies:
-  EnforcedStyle: receive
+Rails/FilePath:
+  Description: 'Checks that spec file paths are consistent with the test subject.'
+  Enabled: true
 
-RSpec/MessageChain:
+RSpec/LetSetup:
+  Description: 'Checks unreferenced `let!` calls being used for test setup.'
   Enabled: false
+
+RSpec/MultipleExpectations:
+  Description: 'Checks if examples contain too many `expect` calls.'
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Max: 10
 
 RSpec/NestedGroups:
-  Max: 5
+  Max: 4
 
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - spec/requests/**/*
-
-RSpec/VariableName:
-  Exclude:
-    - spec/requests/**/*
-# Rails ------------------------------------------------------------------------
-
-Rails/RakeEnvironment:
+RSpec/VerifiedDoubles:
+  Description: 'Prefer using verifying doubles over normal doubles.'
   Enabled: false
 
-Rails/WhereNotWithMultipleConditions:
-  Enabled: false
+# Global configuration:
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'bin/**/*'
+    - 'config/deploy.rb'
+    - 'config/puma.rb'
+  TargetRubyVersion: 3.3.5
