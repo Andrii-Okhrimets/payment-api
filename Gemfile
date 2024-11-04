@@ -22,7 +22,7 @@ gem 'rack-cors', '2.0.2', require: 'rack/cors'
 gem 'rest-client', '2.1.0'
 
 # Authorization policies
-gem 'pundit', '2.0.1'
+gem 'pundit', '2.4.0'
 
 ### Pagination
 gem 'kaminari'
