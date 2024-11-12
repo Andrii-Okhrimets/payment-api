@@ -29,7 +29,7 @@ gem 'kaminari'
 
 #### Background jobs
 gem 'redis', '5.3.0'
-gem 'sidekiq-cron', '~> 1.3'
+gem 'sidekiq-cron', '~> 2.0'
 
 group :development, :test do
   gem 'bullet', '7.2.0'
