@@ -66,7 +66,7 @@ group :test do
   gem 'json_spec', '1.1.5'
   gem 'rails-controller-testing', '1.0.5'
   gem 'rspec_junit_formatter', '0.6.0'
-  gem 'rspec-rails', '7.0.1'
+  gem 'rspec-rails', '7.1.0'
   gem 'rspec-sidekiq', '5.0.0'
   gem 'rswag-specs', '2.15.0'
   gem 'shoulda-matchers', '6.4.0'
