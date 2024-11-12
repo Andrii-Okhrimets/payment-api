@@ -32,7 +32,7 @@ gem 'redis', '5.3.0'
 gem 'sidekiq-cron', '~> 1.3'
 
 group :development, :test do
-  gem 'bullet', '7.2.0'
+  gem 'bullet', '8.0.0'
 
   # sometimes we need to build fake entities on these environments for testing
   gem 'annotate'
