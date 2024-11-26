@@ -49,7 +49,7 @@ group :development, :test do
   gem 'bundle-audit', require: false
   gem 'lefthook', require: false
   gem 'rails_best_practices', require: false
-  gem 'rubocop', '1.68.0', require: false
+  gem 'rubocop', '1.69.0', require: false
   gem 'rubocop-factory_bot', '2.26.1', require: false
   gem 'rubocop-faker', '1.2.0', require: false
   gem 'rubocop-performance', '1.22.1', require: false
