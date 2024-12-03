@@ -15,7 +15,7 @@ gem 'rswag-api', '2.15.0'
 gem 'rswag-ui', '2.15.0'
 
 # JSON serialization
-gem 'active_model_serializers', '0.10.14'
+gem 'active_model_serializers', '0.10.15'
 # CORS support
 gem 'rack-cors', '2.0.2', require: 'rack/cors'
 
