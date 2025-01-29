@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'pg', '1.5.9'
-gem 'puma', '6.4.3'
+gem 'puma', '6.6.0'
 gem 'rails', '~> 7.2.2'
 
 gem 'interactor', '3.1.2'
